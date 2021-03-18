@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Attack Demo</title>
+    This is a html page of attack demo.
+    <script>
+    function readFile() {
+        var file = "file:///data/data/com.willing.jsdemo/files/secret.txt";
+        var url = "https://www.baidu.com";
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4) {
+                alert(xmlHttp.responseText);
+            }
+        }
+        xmlHttp.open("GET", url, true);
+        xmlHttp.send();
+    }
+    readFile();
+    </script>
+</head>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Javascript Demo</title>
+    This is a html page of javascript demo.
+    <script>
+        function callJS() {
+            alert("Native调用JS的callJS()方法");
+        }
+        function callJSwithPara(arg) {
+            alert("Native调用JS的callJSwithPara(" + arg + ")方法");
+            return "success";
+        }
+
+        function callNative() {
+            NativeToJS.callNative();
+        }
+        function callNativeWithPara() {
+            NativeToJS.callNative("hello from JS");
+        }
+
+        function callNativeByUrl(){
+            document.location = "jsbridge://webview?arg=hello form JS by url";
+        }
+        function returnRes(result) {
+            alert("收到Native的返回值：" + result);
+        }
+
+        function confirmCallback() {
+            var result = confirm("jsbridge://jsconfirm?arg=this is a confirm from JS");
+            alert("confirm方法的返回结果：" + result);
+        }
+        function promptCallback() {
+            var result = prompt("jsbridge://jsprompt?arg=this is a prompt from JS");
+            alert("prompt方法的返回结果：" + result);
+        }
+    </script>
+</head>
+<body>
+<br>
+<p id="text1">[Method 1]test callNative:</p>
+<button type="button" id="button1" onclick="callNative()">callNative1</button>
+<br>
+<p id="text2">[Method 2]test callNative(with para):</p>
+<button type="button" id="button2" onclick="callNativeWithPara()">callNative2</button>
+<br>
+<p id="text3">[Method 3]test callNative(by url):</p>
+<button type="button" id="button3" onclick="callNativeByUrl()">callNative3</button>
+<br>
+<p id="text4">[Method 4]test callNative(by confirm callback):</p>
+<button type="button" id="button4" onclick="confirmCallback()">callNative4</button>
+<br>
+<p id="text5">[Method 5]test callNative(by prompt callback):</p>
+<button type="button" id="button5" onclick="promptCallback()">callNative5</button>
+</body>
+
+<style>
+    #button1 {
+        width: 300px;
+        height: 60px;
+    }
+    #button2 {
+        width: 300px;
+        height: 60px;
+    }
+    #button3 {
+        width: 300px;
+        height: 60px;
+    }
+    #button4 {
+        width: 300px;
+        height: 60px;
+    }
+    #button5 {
+        width: 300px;
+        height: 60px;
+    }
+</style>
+</html>
